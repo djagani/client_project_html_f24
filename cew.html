@@ -13,13 +13,16 @@
         <nav>
             <ul>
                 <li><a href = "index.html">Home</a></li>
-                <li><a href = "acad_adv.html">Academic advising</a></li>
+                <li><a href = "acad_adv.html">Academic Advising</a></li>
                 <li><a href = "maize.html">Foodpantry</a></li>
                 <li><a href= "cew.html" class="active">CEW+</a></li>
             </ul>
         </nav>
         <h1>CEW+ | Center for the Education of Women</h1>
         <p class="descr">Empowering Women and Underrepresented Communities at U-M</p>
+
+        <button id="dark-mode-toggle">Toggle Dark Mode</button>
+
     </header>
     
     <main id="main-content">
@@ -80,7 +83,7 @@
                 <li>Email us at <a href="mailto:cew.appts@umich.edu">cew.appts@umich.edu </a>. Please be advised that depending on response rates to emails, you may not get the first available appointment offered.</li>
             </ul>
             
-            <h4>Our Counseling Services</h4>
+            <h3>Our Counseling Services</h3>
             <ul>
                 <li>Career counseling</li>
                 <li>Education Counseling</li>
@@ -98,10 +101,33 @@
             <h2>Contact Us</h2>
             <p>Have questions? <a href="tel:7347646360"> Reach out to us </a> or visit our office at 330 E. Liberty Street.</p>
         </section>
+
+        <script>
+            // JavaScript to toggle dark mode
+        const toggleButton = document.getElementById('dark-mode-toggle');
+
+        // Check if user prefers dark mode in the system
+        const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+        // Set initial mode based on system preference
+        if (prefersDark) {
+            document.body.classList.add('dark');
+        }
+
+        // Toggle the 'dark' class on button click
+        toggleButton.addEventListener('click', () => {
+            document.body.classList.toggle('dark'); // Toggle dark mode
+            const isDarkMode = document.body.classList.contains('dark');
+            toggleButton.textContent = isDarkMode ? "Switch to Light Mode" : "Switch to Dark Mode";
+        });
+        </script>
     </main>
 
     <footer>
-        <p>&copy; 2024 CEW+ | University of Michigan</p>
+        <p>&copy; <span id="year"></span> CEW+ | University of Michigan</p>
+    <script>
+        document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
     </footer>
 </body>
 </html>
