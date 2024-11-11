@@ -199,7 +199,7 @@ a:focus, button:focus {
 
 /* Dark Mode Styles */
 body.dark {
-    background-color: #121212;
+    background-color: #091c27;
     color: #ddd;
 }
 
@@ -230,12 +230,12 @@ body.dark a {
 }
 
 body.dark button {
-    background-color: #121212;
+    background-color: #141414;
     color: #ddd;
 }
 
 body.dark button:hover {
-    background-color: #121212;
+    background-color: #141414;
 }
 
 /* Media Queries for Tablets*/
