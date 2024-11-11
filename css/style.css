@@ -3,14 +3,15 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: 'Lato', sans-serif; /* Modern, clean font */
+    font-family: 'Montserrat', sans-serif; /* Modern, clean font */
 }
 
 body {
+    overflow-x: hidden; /* Prevents horizontal overflow */
     margin: 5%;
     padding: 0;
     font-size: 1.125em; /* 18px */
-    background-color:#d1f7f1;
+    background-color:#00274C;
     color: #333; /* Soft black for readability */
     display: grid;
     grid-template-columns: 1fr; /* Mobile first single column layout */
@@ -39,17 +40,24 @@ header {
 }
 
 /* Heading styles */
+#main-content h1 {
+    color: #004165;
+    font-family: 'Roboto', serif;
+}
+
 h1 {
     text-align: center;
     font-size: 2.5em; /* Adjusted for mobile */
     margin: 0.5em 0; /* Consistent margin */
     font-weight: 700;
-    font-family: 'Playfair Display', serif; /* Elegant serif font for headings */
+    font-family: 'Roboto', serif; /* Elegant serif font for headings */
 }
+
+
 
 h2, h3 {
     color: #004165;
-    font-family: 'Lato', sans-serif;
+    font-family: 'Montserrat', sans-serif;
 }
 
 h2 {
@@ -111,6 +119,7 @@ nav ul {
     margin: 20px 0;
     list-style-type: none;
     padding: 0;
+    justify-content: center;
 }
 
 nav a {
@@ -136,9 +145,10 @@ nav a:hover {
 } */
 
 nav ul li a.active {
-    background-color: #006494;
-    color: white;
+    background-color: #FFCB05;
+    color: #004165;
     font-weight: bold;
+    border-bottom: 3px solid #004165; /* Adds a bottom border to indicate active page */
     border-radius: 5px;
 }
 
@@ -174,14 +184,71 @@ a:focus, button:focus {
     margin-right: auto;
 }
 
-/* Media Queries for larger devices if needed */
+/* Default grid layout for mobile */
+.photo-gallery {
+    display: grid;
+    grid-template-columns: 1fr; /* Single column for mobile */
+    gap: 7px; /* space between images */
+}
+
+.photo-gallery img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+/* Dark Mode Styles */
+body.dark {
+    background-color: #121212;
+    color: #ddd;
+}
+
+body.dark main {
+    background-color: #004165;
+    color: #ddd;
+}
+
+body.dark footer {
+    background-color: #004165;
+    color: #FFCB05;
+}
+
+body.dark #main-content h1 {
+    color: #FFCB05;
+}
+
+body.dark p{
+    color: #ddd;
+}
+
+body.dark h1, body.dark h2, body.dark h3 {
+    color: #FFCB05;
+}
+
+body.dark a {
+    color: #ddd;
+}
+
+body.dark button {
+    background-color: #121212;
+    color: #ddd;
+}
+
+body.dark button:hover {
+    background-color: #121212;
+}
+
+/* Media Queries for Tablets*/
 @media (min-width: 768px) {
     body {
-        grid-template-columns: 1fr 2fr; /* Two columns for larger screens */
+        grid-template-columns: 1fr 3fr; /* Two columns for larger screens */
+        overflow-x: hidden; 
     }
 
     nav ul {
-        grid-template-columns: repeat(4, 1fr);
+        display: flex; /* Switches to flex for better horizontal layout */
+        gap: 90px;
+        justify-content: center;
     }
 
     header {
@@ -189,7 +256,7 @@ a:focus, button:focus {
     }
 
     h1 {
-        font-size: 3em;
+        font-size: 2.5em;
     }
 
     h2 {
@@ -200,6 +267,45 @@ a:focus, button:focus {
         font-size: 1.125em;
     }
 
+    .photo-gallery {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns */
+      }
+
+}
+
+/* Media Queries for Desktops */
+@media (min-width: 1024px) {
+    body {
+        grid-template-columns: 1fr 3fr; /* Three columns for large screens */
+        overflow-x: hidden; 
+    }
+
+    nav ul {
+        /* grid-template-columns: repeat(4, 1fr); */
+        display: flex; /* Switches to flex for better horizontal layout */
+        gap: 90px;
+        justify-content: center;
+    }
+
+    header {
+        padding: 2em;
+    }
+
+    h1 {
+        font-size: 3.5em;
+    }
+
+    h2 {
+        font-size: 2.5em;
+    }
+
+    p {
+        font-size: 1.25em;
+    }
+
+    .photo-gallery {
+        grid-template-columns: repeat(3, 1fr); /* 3 columns */
+      }
 }
 
 
